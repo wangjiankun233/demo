@@ -20,7 +20,7 @@ public class TestController {
 	@RequestMapping("list")
 	public String get(Model model){
 		List<Map<String,Object>> test =testService.getTest();
-
+        model.addAttribute("type", "haha");
 		model.addAttribute("test", test);
 		return "test";
 	}
