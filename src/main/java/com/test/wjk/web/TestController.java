@@ -20,7 +20,7 @@ public class TestController {
 		List<Map<String,Object>> test =testService.getTest();
 		JSONArray json =JSONArray.fromObject(test);
 		model.addAttribute("test", json.toString());
-		return "jsp/hello";
+		return "ftl/hello";
 	}
 	
 
