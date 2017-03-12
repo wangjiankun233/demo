@@ -34,7 +34,7 @@
 	<!-- Freemarker配置 -->
 	<bean id="freemarkerConfig"
 		  class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-		<property name="templateLoaderPath" value="/WEB-INF/" />
+		<property name="templateLoaderPath" value="/demo/ftl/" />
 		<property name="freemarkerSettings">
 			<props>
 				<prop key="template_update_delay">0</prop>
@@ -52,6 +52,9 @@
 			<value>.ftl</value>
 		</property>
 		<property name="contentType" value="text/html;charset=UTF-8"></property>
+		<property name="cache" value="false"/>
+		<property name="requestContextAttribute" value="request" />
+
 	</bean>
 	<!-- 4.扫描web相关的bean -->
 

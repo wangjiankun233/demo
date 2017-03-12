@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.system.user.dao.UserDao">
+    <select id="getUsers" resultType="Map" parameterType="Map">
+        select
+        u.id "id",
+        u.name "name",
+        u.role "roleId",
+        r.name "roleName"
+        from
+        sys_user u
+        left join sys_role r on u.role=r.id
+       where
+       1=1
+       <if test="name!=null and name!=''">
+         and  u.name = #{name}
+       </if>
+	   <if test="passWord!=null and passWord!=''">
+           and u.PASSWORD = #{passWord}
+       </if>
+
+    </select>
+    <select id="getMenu" parameterType="Map" resultType="Map">
+          SELECT
+	      m.id "id",
+          m. NAME "name",
+	      m.path "path"
+          FROM
+	        sys_menu m
+          LEFT JOIN sys_role_menu rm ON rm.menu_id = m.id
+          WHERE
+	        rm.role_id = #{roleId}
+    </select>
+</mapper>
