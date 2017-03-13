@@ -32,10 +32,6 @@
 <body>
 <div class="container">
     <div class="row clearfix">
-        <br/>
-        <br/>
-        <br/>
-        <br/><br/><br/><br/><br/>
 
         <div class="col-md-12 column">
         </div>
@@ -45,6 +41,7 @@
         </div>
         <div class="col-md-4 column">
 
+                <img src="${basePath}/demo/source/logo.jpg" class="img-responsive" alt="Cinque Terre">
                 <div class="form-group">
                     <label for="exampleInputEmail1">用户名</label><input type="text" class="form-control" id="userName" />
                 </div>

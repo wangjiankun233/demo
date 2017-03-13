@@ -10,7 +10,10 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="row clearfix">
-                <div class="col-md-8 column">
+                <div class="col-md-8 column" >
+                    <h3 >
+                        欢迎光临李狗蛋酒店
+                    </h3>
                 </div>
                 <div class="col-md-4 column">
                     你好： ${user.roleName} ${user.name}
