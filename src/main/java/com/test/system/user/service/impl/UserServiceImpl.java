@@ -22,4 +22,40 @@ public class UserServiceImpl implements UserService {
     public List<Map<String, Object>> getMenu(Map<String, Object> paramsMap) {
         return userDao.getMenu(paramsMap);
     }
+
+    public void addDept(Map<String, Object> paramMap) {
+        userDao.addDept(paramMap);
+    }
+
+    public List<Map<String, Object>> getDept(Map<String, Object> paramsMap) {
+        return userDao.getDept(paramsMap);
+    }
+
+    public void updateDept(Map<String, Object> paramsMap) {
+        userDao.updateDept(paramsMap);
+    }
+
+    public void deleteDept(Map<String, Object> paramsMap) {
+userDao.deleteDept(paramsMap);
+    }
+
+    public List<Map<String, Object>> getEmp(Map<String, Object> paramsMap) {
+        return userDao.getEmp(paramsMap);
+    }
+
+    public void deleteEmp(Map<String, Object> paramsMap) {
+userDao.deleteEmp(paramsMap);
+    }
+
+    public void addEmp(Map<String, Object> paramsMap) {
+userDao.addEmp(paramsMap);
+    }
+
+    public void updateEmp(Map<String, Object> paramsMap) {
+userDao.updateEmp(paramsMap);
+    }
+
+    public void updateStatus(Map<String, Object> paramsMap) {
+userDao.updateStatus(paramsMap);
+    }
 }

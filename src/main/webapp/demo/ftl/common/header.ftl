@@ -10,53 +10,38 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="row clearfix">
-                <div class="col-md-8 column" >
+                <div class="col-md-10 column" >
                     <h3 >
-                        欢迎光临李狗蛋酒店
+                        新创人力资源管理系统
                     </h3>
                 </div>
-                <div class="col-md-4 column">
-                    你好： ${user.roleName} ${user.name}
+                <div class="col-md-2 column">
+                    你好： ${user.roleName}
+                  <br>
+                  ${user.chName}
                 </div>
             </div>
             <ul class="nav nav-pills">
             <#assign menuList=menu?eval />
             <#list menuList as m >
                 <#if m_index==0>
-                    <li class="active">
-                        <a href="#" >${m.name}</a>
+                    <li >
+                        <a class="menus" href="#" path="${m.path}" >${m.name}</a>
                     </li>
                 <#else >
                     <li >
-                        <a href="#" >${m.name}</a>
+                        <a href="#" class="menus"  path="${m.path}">${m.name}</a>
                     </li>
                 </#if>
 
             </#list>
-
-
-                <li class="dropdown pull-right">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">下拉<strong class="caret"></strong></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#">操作</a>
-                        </li>
-                        <li>
-                            <a href="#">设置栏目</a>
-                        </li>
-                        <li>
-                            <a href="#">更多设置</a>
-                        </li>
-                        <li class="divider">
-                        </li>
-                        <li>
-                            <a href="#">分割线</a>
-                        </li>
-                    </ul>
-                </li>
             </ul>
+            <div class="row clearfix" id="info">
+
+            </div>
         </div>
     </div>
 </div>
 
+<input type="hidden" id="basePath" value="${basePath}">
 <input type="hidden" id="menu" value="${menu}"/>

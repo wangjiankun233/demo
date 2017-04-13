@@ -1,7 +1,9 @@
 package com.test.system.user.web;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.test.system.user.service.UserService;
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,5 +53,94 @@ public class UserController {
            return "success";
         }
         return "error";
+    }
+    @RequestMapping("emp")
+    public String emp(String type, Model model){
+        System.out.print("++++++"+type+"++++++++++");
+
+        model.addAttribute("type",type);
+
+        return "emp/emp";
+    }
+    @RequestMapping("add")
+    public String add( Model model) {
+        List<Map<String,Object>> dept=userService.getDept(new HashMap<String,Object>());
+        JSONArray deptList=JSONArray.fromObject(dept);
+        model.addAttribute("deptList",deptList.toString());
+        System.out.print(deptList.toString());
+        return "emp/addEmp";
+    }
+    @RequestMapping("addEmp")
+    @ResponseBody
+    public  String addEmp(String type,String bath,String name,String password,String chName ,String idcard ,String deptId,String sex ,String home,String address ){
+        Map<String,Object> paramMap=new HashMap<String,Object>();
+        paramMap.put("bath",bath);
+        paramMap.put("name",name);
+        paramMap.put("password",password);
+        paramMap.put("chName",chName);
+        paramMap.put("idcard",idcard);
+        paramMap.put("deptId",deptId);
+        paramMap.put("sex",sex);
+        paramMap.put("home",home);
+        paramMap.put("address",address);
+        paramMap.put("role",type);
+        userService.addEmp(paramMap);
+        return "success";
+    }
+    @RequestMapping("findEmp")
+    public  String findEmp(String name,Model model,String type){
+        Map<String,Object> paramMap=new HashMap<String,Object>();
+        paramMap.put("name",name);
+        paramMap.put("roleId",type);
+        List<Map<String,Object>> list=userService.getEmp(paramMap);
+        JSONArray json=JSONArray.fromObject(list);
+        model.addAttribute("empList",json.toString());
+        return "emp/find";
+    }
+    @RequestMapping("deleteEmp")
+    @ResponseBody
+    public  String deleteEmp(String id){
+        Map<String,Object> paramMap=new HashMap<String,Object>();
+        paramMap.put("id" ,id);
+        userService.deleteEmp(paramMap);
+        return "success";
+    }
+    @RequestMapping("detail")
+    public String detail(String id,Model model){
+        Map<String,Object> paramMap=new HashMap<String,Object>();
+        paramMap.put("id" ,id);
+        Map<String,Object> map= userService.getEmp(paramMap).get(0);
+        JSONObject json=JSONObject.fromObject(map);
+        model.addAttribute("empInfo" ,json.toString());
+        return "emp/detail";
+    }
+    @RequestMapping("update")
+    public String update(String id,Model model){
+        Map<String,Object> paramMap=new HashMap<String,Object>();
+        paramMap.put("id" ,id);
+        Map<String,Object> map= userService.getEmp(paramMap).get(0);
+        JSONObject json=JSONObject.fromObject(map);
+        List<Map<String,Object>> dept=userService.getDept(new HashMap<String,Object>());
+        JSONArray deptList=JSONArray.fromObject(dept);
+        model.addAttribute("deptList",deptList.toString());
+        System.out.print(deptList.toString());
+        model.addAttribute("empInfo" ,json.toString());
+        return "emp/update";
+    }
+    @RequestMapping("updateEmp")
+    @ResponseBody
+    public String updateEmp(String id ,String bath,String name,String chName ,String idcard ,String deptId,String sex ,String home,String address ){
+        Map<String,Object> paramMap=new HashMap<String,Object>();
+        paramMap.put("bath",bath);
+        paramMap.put("name",name);
+        paramMap.put("chName",chName);
+        paramMap.put("idcard",idcard);
+        paramMap.put("deptId",deptId);
+        paramMap.put("sex",sex);
+        paramMap.put("home",home);
+        paramMap.put("address",address);
+        paramMap.put("id",id);
+        userService.updateEmp(paramMap);
+        return "success";
     }
 }

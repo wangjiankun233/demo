@@ -7,13 +7,14 @@
         select
         u.id "id",
         u.name "name",
+        u.ch_name "chName",
         u.role "roleId",
         r.name "roleName"
         from
         sys_user u
         left join sys_role r on u.role=r.id
        where
-       1=1
+       u.status='0'
        <if test="name!=null and name!=''">
            and  u.name = #{name}
        </if>
@@ -33,4 +34,85 @@
           WHERE
 	        rm.role_id = #{roleId}
     </select>
+    <insert id="addDept" parameterType="Map">
+        insert into sys_dept(name,scope,remark) VALUES (#{name},#{scope},#{remark})
+    </insert>
+    <select id="getDept" parameterType="Map" resultType="Map">
+        select d.id "id", d.name "name" , d.scope "scope" , d.remark "remark"from sys_dept d where 1=1
+        <if test="name!=null and name!=''">
+            and  d.name like #{name}
+        </if>
+        <if test="id!=null and id!=''">
+            and  d.id=#{id}
+        </if>
+    </select>
+    <delete id="deleteDept" parameterType="Map">
+        delete from sys_dept where id=#{id}
+    </delete>
+    <update id="updateDept" parameterType="Map">
+     update sys_dept set
+     name=#{name},
+     scope=#{scope},
+     remark=#{remark}
+     where
+     id=#{id}
+    </update>
+    <select id="getEmp" parameterType="Map" resultType="Map">
+        select
+         u.name "name",
+         u.id "id",
+         u.sex "sex",
+         u.status "status",
+         u.ch_name "chName",
+         u.home "home",
+        u.address "address",
+        u.idcard "idcard",
+        d.name "deptName",
+        r.name "roleName",
+        d.id "deptId"
+        from sys_user u
+        left join sys_dept d on d.id=u.dept_id
+        left join sys_role r on r.id=u.role
+        where
+        1=1
+        <if test="id!=null and id!=''">
+            and u.id=#{id}
+        </if>
+        <if test="roleId!=null and roleId!=''">
+            and u.role=#{roleId}
+        </if>
+        <if test="deptId!=null and deptId!=''">
+            and u.dept_id=#{deptId}
+        </if>
+        <if test="name!=null and name!=''">
+            and u.ch_name like #{name}
+        </if>
+        <if test="status!=null and status!=''">
+            and u.status=#{status}
+        </if>
+    </select>
+    <insert id="addEmp" parameterType="Map">
+        INSERT into sys_user(name,password ,role,dept_id,sex,status,ch_name,home,address,idcard)
+        VALUES (#{name},#{password},#{role},#{deptId},#{sex},0,#{chName},#{home},#{address},#{idcard})
+
+    </insert>
+    <delete id="deleteEmp" parameterType="Map">
+        delete from sys_user where id=#{id}
+    </delete>
+    <update id="updateEmp" parameterType="Map">
+        update sys_user SET
+        name=#{name},
+        dept_id=#{deptId},
+        sex=#{sex},
+        ch_name=#{chName},
+        address=#{address},
+        idcard=#{idcard},
+        home=#{home}
+        where id=#{id}
+    </update>
+    <update id="updateStatus" parameterType="Map">
+        update sys_user SET
+        status=1
+        where id=#{id}
+    </update>
 </mapper>
