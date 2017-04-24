@@ -9,9 +9,12 @@
         u.name "name",
         u.ch_name "chName",
         u.role "roleId",
+        u.dept_id "deptId",
+        d.name "deptName",
         r.name "roleName"
         from
         sys_user u
+        left join sys_dept d on d.id=u.dept_id
         left join sys_role r on u.role=r.id
        where
        u.status='0'
@@ -114,5 +117,56 @@
         update sys_user SET
         status=1
         where id=#{id}
+    </update>
+    <select id="getWork" parameterType="Map" resultType="Map">
+        select
+        w.id "id",
+        date_format(w.date, '%Y-%c-%d' ) "date",
+        w.local "local",
+        w.info "info",
+        w.type "type",
+        w.remark "remark"
+        from emp_work w
+
+        where 1=1
+        <if test="userId != null and userId!=''">
+          and  w.user_id=#{userId}
+        </if>
+        <if test="type!=null and type!=''">
+           AND w.type=#{type}
+        </if>
+    </select>
+    <insert id="addWork" parameterType="Map">
+       insert into emp_work(id,user_id,date,LOCAL ,info,TYPE ,remark)
+       VALUES (#{id},#{userId},str_to_date(#{date}, '%Y-%m-%d'),#{local},#{info},#{type},#{remark})
+    </insert>
+    <insert id="addUserWork" parameterType="Map">
+       insert into user_work(work_id,user_id,status) VALUES (#{id},#{userId},'0')
+    </insert>
+    <delete id="deleteWork" parameterType="Map">
+        delete from emp_work where id=#{id}
+    </delete>
+    <delete id="deleteUserWork" parameterType="Map">
+        delete from user_work where work_id=#{id}
+    </delete>
+    <select id="getWorkEmp" parameterType="Map" resultType="Map">
+        select
+        w.status "status",
+        u.name "name"
+        from user_work w left JOIN sys_user u on u.id=w.user_id where w.work_id=#{id}
+    </select>
+    <select id="getEmpWork" parameterType="Map" resultType="Map">
+        select
+        w.id "id",
+        w.status "status",
+        date_format(e.date, '%Y-%c-%d' ) "date",
+        e.local "local",
+        e.info "info",
+        e.remark
+        from user_work w left JOIN emp_work e on w.work_id=e.id
+        where w.user_id=#{id} and e.type=#{type}
+    </select>
+    <update id="updateEmpWorkStatus" parameterType="String" >
+        update user_work set status='1' where id=#{id}
     </update>
 </mapper>

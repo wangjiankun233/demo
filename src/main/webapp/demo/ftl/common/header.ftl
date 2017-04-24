@@ -16,7 +16,7 @@
                     </h3>
                 </div>
                 <div class="col-md-2 column">
-                    你好： ${user.roleName}
+                    你好： ${user.deptName}的${user.roleName}
                   <br>
                   ${user.chName}
                 </div>

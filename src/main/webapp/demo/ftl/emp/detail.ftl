@@ -16,7 +16,7 @@
         </td>
         <td>身份证：</td>
         <td>
-            ${emp.idcard}"
+            ${emp.idcard}
         </td>
     </tr>
     <tr >

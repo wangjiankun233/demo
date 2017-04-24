@@ -34,12 +34,16 @@
         <td>部门：</td>
         <td>
         <#assign deptL=deptList?eval />
+            <#if user.roleId=='2'>
+                <input type="hidden" id="deptId" value="${user.deptId}">${user.deptName}
+               <#else >
+                   <select id="deptId">
+                       <#list  deptL as dept>
+                           <option value ="${dept.id}">${dept.name}</option>
+                       </#list>
+                   </select>
+            </#if>
 
-            <select id="deptId">
-            <#list  deptL as dept>
-                <option value ="${dept.id}">${dept.name}</option>
-            </#list>
-            </select>
         </td>
     </tr>
     <tr >

@@ -88,8 +88,13 @@ public class UserController {
         return "success";
     }
     @RequestMapping("findEmp")
-    public  String findEmp(String name,Model model,String type){
+    public  String findEmp(String name,Model model,String type,HttpSession httpSession ){
         Map<String,Object> paramMap=new HashMap<String,Object>();
+        Map<String,Object> user=(Map<String, Object>) httpSession.getAttribute("user");
+        if("2".equals(user.get("roleId")))
+        {
+            paramMap.put("deptId",user.get("deptId"));
+        }
         paramMap.put("name",name);
         paramMap.put("roleId",type);
         List<Map<String,Object>> list=userService.getEmp(paramMap);
@@ -106,9 +111,13 @@ public class UserController {
         return "success";
     }
     @RequestMapping("detail")
-    public String detail(String id,Model model){
+    public String detail(String id,Model model,String type,HttpSession session){
         Map<String,Object> paramMap=new HashMap<String,Object>();
+        Map<String,Object> user=(Map<String,Object>)session.getAttribute("user");
         paramMap.put("id" ,id);
+        if("0".equals(type)){
+            paramMap.put("id",user.get("id"));
+        }
         Map<String,Object> map= userService.getEmp(paramMap).get(0);
         JSONObject json=JSONObject.fromObject(map);
         model.addAttribute("empInfo" ,json.toString());
@@ -129,17 +138,17 @@ public class UserController {
     }
     @RequestMapping("updateEmp")
     @ResponseBody
-    public String updateEmp(String id ,String bath,String name,String chName ,String idcard ,String deptId,String sex ,String home,String address ){
-        Map<String,Object> paramMap=new HashMap<String,Object>();
-        paramMap.put("bath",bath);
-        paramMap.put("name",name);
-        paramMap.put("chName",chName);
-        paramMap.put("idcard",idcard);
-        paramMap.put("deptId",deptId);
-        paramMap.put("sex",sex);
-        paramMap.put("home",home);
-        paramMap.put("address",address);
-        paramMap.put("id",id);
+    public String updateEmp(String id ,String bath,String name,String chName ,String idcard ,String deptId,String sex ,String home,String address ) {
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        paramMap.put("bath", bath);
+        paramMap.put("name", name);
+        paramMap.put("chName", chName);
+        paramMap.put("idcard", idcard);
+        paramMap.put("deptId", deptId);
+        paramMap.put("sex", sex);
+        paramMap.put("home", home);
+        paramMap.put("address", address);
+        paramMap.put("id", id);
         userService.updateEmp(paramMap);
         return "success";
     }

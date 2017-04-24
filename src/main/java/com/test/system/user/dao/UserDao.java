@@ -18,4 +18,12 @@ public interface UserDao {
     void addEmp(Map<String,Object> paramsMap);
     void updateEmp(Map<String,Object> paramsMap);
     void updateStatus(Map<String,Object> paramsMap);
+    void addWork(Map<String,Object> paramMap);
+    void addUserWork(Map<String,Object> paramMap);
+    List<Map<String,Object>> getWork(Map<String,Object> paramMap);
+    void deleteWork(Map<String,Object> paramMap);
+    void deleteUserWork(Map<String,Object> paramMap);
+    List<Map<String,Object>>   getWorkEmp(Map<String,Object> paramMap);
+    List<Map<String,Object>>  getEmpWork(Map<String,Object> paramMap);
+    void updateEmpWorkStatus(String id);
 }
