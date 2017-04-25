@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50716
 File Encoding         : 65001
 
-Date: 2017-04-25 01:36:39
+Date: 2017-04-26 00:29:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -36,22 +36,34 @@ CREATE TABLE `emp_contract` (
 -- ----------------------------
 DROP TABLE IF EXISTS `emp_leave`;
 CREATE TABLE `emp_leave` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `date` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `local` varchar(255) DEFAULT NULL,
-  `info` varchar(255) DEFAULT NULL,
+  `reason` varchar(255) DEFAULT NULL,
   `remark` varchar(255) DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `start_date` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `end_date` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of emp_leave
 -- ----------------------------
+INSERT INTO `emp_leave` VALUES ('2', '15', '2017-04-26 00:16:55', '不想工作', 'haha', '0', '1', '2017-04-26 00:16:55', '2017-04-26 00:16:55');
+INSERT INTO `emp_leave` VALUES ('3', '15', '2017-04-26 00:23:11', '领导傻逼', '领导吃屎', '1', '1', '2017-04-26 00:23:11', '2017-04-26 00:23:11');
+INSERT INTO `emp_leave` VALUES ('4', '15', '2017-04-26 00:18:10', 'sb', 'haha', '0', '2', '2017-04-26 00:18:10', '2017-04-26 00:18:10');
+INSERT INTO `emp_leave` VALUES ('5', '15', '2017-04-26 00:24:24', 'fuckyou', 'gfy', '1', '1', '2017-04-26 00:24:24', '2017-04-26 00:24:24');
+INSERT INTO `emp_leave` VALUES ('6', '15', '2017-04-26 00:22:51', 'hjhjhkj', 'haha', '0', '1', '2017-04-26 00:22:51', '2017-04-26 00:22:51');
+INSERT INTO `emp_leave` VALUES ('7', '15', '2017-04-26 00:22:56', 'hjhjhkj', 'haha', '0', '2', '2017-04-26 00:22:56', '2017-04-26 00:22:56');
+INSERT INTO `emp_leave` VALUES ('8', '15', '2017-04-26 00:22:21', 'hjhjhkj', 'haha', '0', '0', '2016-10-10 00:00:00', '2016-10-10 00:00:00');
+INSERT INTO `emp_leave` VALUES ('9', '15', '2017-04-26 00:22:23', 'hjhjhkj', 'haha', '0', '0', '2016-10-10 00:00:00', '2016-10-10 00:00:00');
+INSERT INTO `emp_leave` VALUES ('10', '15', '2017-04-26 00:26:46', 'caonima', 'shabi', '1', '1', '2017-04-26 00:26:46', '2017-04-26 00:26:46');
+INSERT INTO `emp_leave` VALUES ('11', '15', '2017-04-26 00:27:22', 'caonima', 'shabi', '1', '2', '2017-04-26 00:27:22', '2017-04-26 00:27:22');
+INSERT INTO `emp_leave` VALUES ('12', '15', '2017-04-26 00:26:27', 'caonima', 'shabi', '1', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `emp_leave` VALUES ('13', '15', '2017-04-26 00:26:29', 'caonima', 'shabi', '1', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `emp_leave` VALUES ('14', '15', '2017-04-26 00:26:30', 'caonima', 'shabi', '1', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- ----------------------------
 -- Table structure for emp_work

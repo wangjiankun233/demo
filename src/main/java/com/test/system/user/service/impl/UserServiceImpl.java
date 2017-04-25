@@ -57,10 +57,6 @@ userDao.addEmp(paramsMap);
 userDao.updateEmp(paramsMap);
     }
     @Transactional
-    public void updateStatus(Map<String, Object> paramsMap) {
-userDao.updateStatus(paramsMap);
-    }
-    @Transactional
     public void addWork(Map<String, Object> paramsMap) {
       userDao.addWork(paramsMap);
       String emps=(String)paramsMap.get("empData");
@@ -89,10 +85,23 @@ userDao.updateStatus(paramsMap);
     public List<Map<String, Object>> getEmpWork(Map<String, Object> paramMap) {
         return userDao.getEmpWork(paramMap);
     }
-
+    @Transactional
     public void updateEmpWorkStatus(String id) {
         userDao.updateEmpWorkStatus(id);
     }
+    @Transactional
+    public void addLeave(Map<String, Object> paramMap) {
+        userDao.addLeave(paramMap);
+    }
 
-
+    public List<Map<String, Object>> getLeave(Map<String, Object> paramMap) {
+        return userDao.getLeave(paramMap);
+    }
+    @Transactional
+    public void updateLeaveStatus(Map<String,Object> paramMap) {
+           if("1".equals(paramMap.get("type"))&&"1".equals(paramMap.get("status"))){
+               userDao.updateStatus(paramMap);
+           }
+           userDao.updateLeaveStatus(paramMap);
+    }
 }

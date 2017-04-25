@@ -116,7 +116,7 @@
     <update id="updateStatus" parameterType="Map">
         update sys_user SET
         status=1
-        where id=#{id}
+        where id=#{userId}
     </update>
     <select id="getWork" parameterType="Map" resultType="Map">
         select
@@ -168,5 +168,40 @@
     </select>
     <update id="updateEmpWorkStatus" parameterType="String" >
         update user_work set status='1' where id=#{id}
+    </update>
+
+    <insert id="addLeave" parameterType="Map" >
+        insert into emp_leave(user_id,date,reason,remark,type,status,start_date,end_date)
+        VALUES (#{userId},now(),#{reason},#{remark},#{type},0,str_to_date(#{startDate}, '%Y-%m-%d'),str_to_date(#{endDate}, '%Y-%m-%d'))
+    </insert>
+    <select id="getLeave" parameterType="Map" resultType="Map">
+        select
+        l.id "id",
+        l.user_id "userId",
+        u.name "userName",
+        l.reason "reason",
+        l.remark "remark",
+        date_format(l.date, '%Y-%c-%d' ) "date",
+        date_format(l.start_date, '%Y-%c-%d' ) "startDate",
+        date_format(l.end_date, '%Y-%c-%d' ) "endDate",
+        l.status "status"
+        from emp_leave l
+        left join sys_user u on l.user_id=u.id
+        where 1=1
+        <if test="id!=null and id!=''">
+            and l.id=#{id}
+        </if>
+        <if test="userId!=null and userId!=''">
+            and l.user_id=#{userId}
+        </if>
+        <if test="type!=null and type!=''">
+            and l.type=#{type}
+        </if>
+        <if test="deptId!=null and deptId!=''">
+            and u.dept_id=#{deptId}
+        </if>
+    </select>
+    <update id="updateLeaveStatus" parameterType="Map">
+        update emp_leave set status=#{status} where id=#{id}
     </update>
 </mapper>

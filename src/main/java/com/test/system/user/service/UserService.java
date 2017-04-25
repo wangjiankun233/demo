@@ -17,11 +17,13 @@ public interface UserService {
      void deleteEmp(Map<String,Object> paramsMap);
      void addEmp(Map<String,Object> paramsMap);
      void updateEmp(Map<String,Object> paramsMap);
-     void updateStatus(Map<String,Object> paramsMap);
      void addWork(Map<String,Object> paramsMap);
      List<Map<String,Object>> getWork(Map<String,Object> paramMap);
      void deleteWork(Map<String,Object> paramMap);
      List<Map<String,Object>>   getWorkEmp(Map<String,Object> paramMap);
      List<Map<String,Object>>  getEmpWork(Map<String,Object> paramMap);
      void updateEmpWorkStatus(String id);
+     void addLeave(Map<String,Object> paramMap);
+     List<Map<String,Object>> getLeave(Map<String,Object> paramMap);
+     void updateLeaveStatus(Map<String,Object> paramMap);
 }
