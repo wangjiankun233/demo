@@ -4,7 +4,7 @@
     <tr>
         <td> 日期：</td>
         <td>
-            <input type="text" id="date">
+            <input onclick="WdatePicker()" class="Wdate" type="text" id="date">
         </td>
         <td>  地点：</td>
         <td>

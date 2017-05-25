@@ -11,11 +11,12 @@
     <tr >
         <td>开始时间：</td>
         <td>
-            <input type="text" id="startDate">
+
+            <input  class="Wdate" type="text" id="startDate" onclick="WdatePicker()"/>
         </td>
         <td>结束时间：</td>
         <td>
-            <input type="text" id="endDate">
+            <input  class="Wdate" type="text" id="endDate" onclick="WdatePicker()">
         </td>
     </tr>
 

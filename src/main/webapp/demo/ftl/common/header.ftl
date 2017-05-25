@@ -3,7 +3,7 @@
 <script type="text/javascript" charset="utf-8" src="${basePath}/demo/js/common/jquery/jquery-1.9.1.min.js"></script>
 <script src="${basePath}/demo/js/common/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="${basePath}/demo/js/wjk/common/header.js"></script>
-
+<script type="text/javascript" charset="utf-8" src="${basePath}/demo/js/common/My97DatePicker/WdatePicker.js"></script>
 <body>
 
 <div class="container">

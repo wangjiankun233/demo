@@ -204,4 +204,8 @@
     <update id="updateLeaveStatus" parameterType="Map">
         update emp_leave set status=#{status} where id=#{id}
     </update>
+    <select id="getContract" parameterType="Map" resultType="Map">
+        select  from emp_contract c
+        left join sys_user u on u.id=c.user_id
+    </select>
 </mapper>
