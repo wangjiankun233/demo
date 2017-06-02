@@ -9,19 +9,26 @@
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
-            <div class="row clearfix">
-                <div class="col-md-10 column" >
+            <div class="row clearfix" style="background-color: #5bc0de">
+                <div class="col-md-9 column" >
                     <h3 >
+                        <span class="glyphicon glyphicon-align-left"></span>
                         新创人力资源管理系统
                     </h3>
                 </div>
-                <div class="col-md-2 column">
+                <div class="col-md-3 column">
                     你好： ${user.deptName}的${user.roleName}
                   <br>
-                  ${user.chName}
+                ${user.chName} <a href="${basePath}/user" style="color: #761c19">登出</a>
                 </div>
             </div>
+            <div class="row clearfix" >
+                <img src="${basePath}/demo/source/timg.png" width="100%">
+            </div>
             <ul class="nav nav-pills">
+                    <li class="active">
+                        <a class="menus" href="#" path="/user/firstPage">首页</a>
+                    </li>
             <#assign menuList=menu?eval />
             <#list menuList as m >
                 <#if m_index==0>

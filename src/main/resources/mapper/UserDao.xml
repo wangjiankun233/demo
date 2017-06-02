@@ -66,6 +66,7 @@
          u.id "id",
          u.sex "sex",
          u.status "status",
+         u.contract "contract",
          u.ch_name "chName",
          u.home "home",
         u.address "address",
@@ -208,4 +209,7 @@
         select  from emp_contract c
         left join sys_user u on u.id=c.user_id
     </select>
+    <update id="upload" parameterType="Map">
+        UPDATE sys_user set contract=#{contract} where id=#{id}
+    </update>
 </mapper>

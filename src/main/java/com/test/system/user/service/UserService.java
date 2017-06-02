@@ -26,4 +26,6 @@ public interface UserService {
      void addLeave(Map<String,Object> paramMap);
      List<Map<String,Object>> getLeave(Map<String,Object> paramMap);
      void updateLeaveStatus(Map<String,Object> paramMap);
+     void upload(Map<String,Object> paramMap);
+
 }

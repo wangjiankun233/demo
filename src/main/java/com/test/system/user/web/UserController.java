@@ -38,6 +38,10 @@ public class UserController {
         model.addAttribute("menu",menu.toString());
         return "common/header";
     }
+    @RequestMapping("firstPage")
+    public String firstPage(){
+        return "common/fastPage";
+    }
     @RequestMapping("login")
     @ResponseBody
     public  String userLogin(String userName, String passWord, HttpSession session){

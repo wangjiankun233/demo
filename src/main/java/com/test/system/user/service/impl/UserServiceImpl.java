@@ -104,4 +104,8 @@ userDao.updateEmp(paramsMap);
            }
            userDao.updateLeaveStatus(paramMap);
     }
+
+    public void upload(Map<String, Object> paramMap) {
+        userDao.upload(paramMap);
+    }
 }

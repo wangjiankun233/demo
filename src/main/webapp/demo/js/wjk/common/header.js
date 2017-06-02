@@ -14,4 +14,5 @@ $(document).ready(function () {
            }
        });
    });
+    $("li").eq(0).find("a").click();
 })
