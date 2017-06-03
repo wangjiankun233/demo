@@ -40,6 +40,20 @@
             window.open($("#basePath").val() + "/contract/downLoad2?fileName="+fileName)
 
         });
+        $(".detail").click(function () {
+            $.ajax({
+                url: $("#basePath").val() + "/user/detail",
+                type: "POST",
+                async: false,
+                data: {id:$(this).attr("empId"),
+
+                },
+                success: function (data){
+
+                    $("#info").html(data);
+                }
+            });
+        });
     });
 
 </script>
