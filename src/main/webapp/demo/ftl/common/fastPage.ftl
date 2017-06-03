@@ -1,3 +1,1 @@
-hahahahahahha
-hhhhhhhhhhhh
-jjjjjjjjjjjjj
+<iframe src="${request.contextPath}/demo/ftl/common/index.html" width="100%" height="100%"></iframe>

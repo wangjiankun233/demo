@@ -43,11 +43,6 @@
     });
 
 </script>
-
-
-<form class="form-search">
-    <input class="input-medium search-query" type="text" id="nameDept"/> <button type="submit" class="btn" id="find">查找</button>
-</form>
 <div id="ok">
     <table class="table">
         <thead>

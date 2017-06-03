@@ -1,0 +1,183 @@
+
+.all{
+    width: 1000px;
+    border: 1px solid #4183c4;
+    margin: 50px auto;
+    height: 800px;
+    z-index: 0;
+}
+.header p{
+    margin: 0;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    float: left;
+    line-height: 50px;
+    background: #b8b886;
+}
+.btn{
+    font-size: 12px;
+    width: 80px;
+    text-align: center;
+    height: 50px;
+    display: block;
+    line-height: 60px;
+}
+.btn:hover{
+    color: #fff;
+    text-decoration:underline;
+}
+.header{
+    background: #91b83f;
+    width: 1000px;
+    clear: both;
+    height: 50px;
+    position: relative;
+}
+.header .diqu{
+    margin-left: 5px;
+}
+.cityBox{
+    width: 800px ;
+    min-height: 600px;
+    border: 3px solid moccasin;
+    position: absolute;
+    border-radius: 5px;
+    display: none;
+    background: #fff;
+    top: 15%;
+    left: 28%;
+    z-index: 1;
+}
+.cityBox .head{
+    height: 50px;
+    background: moccasin;
+    text-align: center;
+}
+.cityBox .head .title{
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.cityBox .head .close{
+    line-height: 50px;
+    font-size: 12px;
+    float: right;
+    margin-right: 10px;
+}
+.cityBox .head .close:hover{
+    color: red;
+}
+.cityBox .c1{
+    margin: 10px 0 0 10px;
+}
+.cityBox .bt{
+    float: left;
+}
+.cityBox .list{
+    float: left;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 690px;
+}
+.cityBox .list li{
+    float: left;
+    width: 60px;
+    list-style: none;
+    height: 20px;
+    line-height: 20px;
+    font-size: 13px;
+    color: #2e2e2e;
+    font-family: Î¢ÈíÑÅºÚ;
+    font-weight: bold;
+    overflow: hidden;
+}
+.cityBox .list li:hover{
+    cursor: pointer;
+}
+hr{
+    clear: both;
+}
+.content{
+    clear: both;
+    overflow: hidden;
+    height: 750px;
+}
+.content .text1{
+    width: 28.2%;
+    height: 380px;
+    float: left;
+}
+.content .text2{
+    width: 17.7%;
+    height: 380px;
+    float: left;
+}
+.textTitle{
+    width: 1000px;
+    height: 30px;
+    padding-left: 20px;
+    font-weight: bold;
+}
+.textTitle span{
+    line-height: 30px;
+}
+.tqImg{
+    margin: 30px auto;
+    width: 200px;
+    height: 150px;
+}
+.tqImg img{
+    width: 100%;
+    height: 100%;
+}
+.tqImg2{
+    margin: 15px auto;
+    width: 150px;
+    height: 100px;
+}
+.tqImg2 img{
+    width: 100%;
+    height: 100%;
+}
+.qushitu{
+    clear: both;
+}
+.riqi{
+    padding-top: 15px;
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    font-weight: bold;
+    line-height: 30px;
+}
+.tishiyu{
+    line-height: 35px;
+    padding-left: 10px;
+    color: blue;
+    font-weight: bold;
+}
+.dao{
+    font-size: 20px;
+    font-weight: bold;
+}
+.xinxi{
+    padding-top: 5px;
+    text-align: center;
+}
+.xinxi2{
+    text-align: center;
+    font-size: 14px;
+}
+.xix1{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.xix2{
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+}
