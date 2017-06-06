@@ -56,6 +56,7 @@
 		<property name="requestContextAttribute" value="request" />
 
 	</bean>
+
 	<!-- upload setting-->
      <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		 <property name="maxUploadSize" value="500000000"/>

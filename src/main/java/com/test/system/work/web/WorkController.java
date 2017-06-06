@@ -1,6 +1,7 @@
 package com.test.system.work.web;
 
 import com.test.system.user.service.UserService;
+import net.sf.json.JSON;
 import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -77,14 +78,15 @@ public class WorkController {
         userService.deleteWork(paramMap);
         return "success";
     }
-    @RequestMapping("getWorkEmp")
+
+    @RequestMapping(value="getWorkEmp",produces = "application/json; charset=utf-8")
     @ResponseBody
-    public String getWorkEmp(String id){
+    public JSON getWorkEmp(String id){
         Map<String,Object> paramMap=new HashMap<String,Object>();
         paramMap.put("id",id);
         List<Map<String,Object>> list=userService.getWorkEmp(paramMap);
         JSONArray json=JSONArray.fromObject(list);
-        return json.toString();
+        return json;
     }
     @RequestMapping("getEmpWork")
     public String getEmpWork(String type,HttpSession session,Model model){

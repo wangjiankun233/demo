@@ -71,7 +71,7 @@ $(document).ready(function () {
                         async: false,
                         data: {id:$(this).attr("workId")},
                         success: function (data){
-                            var e=eval("("+data+")");
+                            var e=data;
                             var html='<tr><td>员工姓名</td><td>是否确认</td></tr>';
                             for(var i=0;i<e.length;i++){
                                 var status=""
