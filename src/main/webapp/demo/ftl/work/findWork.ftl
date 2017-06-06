@@ -60,7 +60,7 @@
             </div>
             <div class="modal-body">
 
-                <table id="userTable">
+                <table id="userTable" class="table-bordered">
 
                 </table>
             </div>
