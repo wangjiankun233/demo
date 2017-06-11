@@ -37,6 +37,7 @@ public class ContractController {
     public String list(Model model ,String name){
         Map<String,Object> paramMap=new HashMap<String,Object>();
         paramMap.put("name",name);
+        paramMap.put("status","0");
         List<Map<String,Object>> list=userService.getEmp(paramMap);
         JSONArray json=JSONArray.fromObject(list);
         model.addAttribute("empList",json.toString());
